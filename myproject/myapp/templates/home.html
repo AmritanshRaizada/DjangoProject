@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Students</h1>
+    <ul>
+        {% for student in students %}
+            <li>{{ student.name }} - {{ student.age }} - {{ student.email }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Teachers</h1>
+    <ul>
+        {% for teacher in teachers %}
+            <li>{{ teacher.name }} - {{ teacher.age }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
