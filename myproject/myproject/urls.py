@@ -17,17 +17,15 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from myapp.views import student_list, home,student_detail, student_create, student_update, student_delete,teacher_detail
-
-
+from myapp.views import student_list, home, student_detail, student_create, student_update, student_delete, teacher_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
-    path('student/<int:id>/', student_detail, name='student-detail'),
-    path('student/create/', student_create, name='student-create'),
-    path('student/<int:id>/update/', student_update, name='student-update'),
-    path('student/<int:id>/delete/', student_delete, name='student-delete'),
-    path('teacher/<int:id>/', teacher_detail, name='teacher-detail')
-
+    path('', home, name='home'),  # Home view should be here
+    path('student/<int:id>/', student_detail, name='student_detail'),
+    path('student/create/', student_create, name='student_create'),
+    path('student/<int:id>/update/', student_update, name='student_update'),
+    path('student/<int:id>/delete/', student_delete, name='student_delete'),
+    path('teacher/<int:id>/', teacher_detail, name='teacher_detail'),
 ]
+

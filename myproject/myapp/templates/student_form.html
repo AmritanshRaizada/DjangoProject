@@ -2,6 +2,9 @@
 <html>
 <head>
     <title>{% if student %}Edit{% else %}Create{% endif %} Student</title>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
 </head>
 <body>
     <h1>{% if student %}Edit{% else %}Create{% endif %} Student</h1>
@@ -15,6 +18,6 @@
         <input type="email" name="email" value="{{ student.email|default_if_none:'' }}" required>
         <button type="submit">Save</button>
     </form>
-    <a href="{% url 'student-list' %}">Cancel</a>
+    <a href="{% url 'home' %}">Cancel</a>
 </body>
 </html>
