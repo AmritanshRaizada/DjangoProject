@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Student, Teacher
 
+from .forms import StudentForm
+from .forms import TeacherForm
+
 def home(request):
     students = Student.objects.all()
     teachers = Teacher.objects.all()  # Adding teachers here
@@ -14,7 +17,7 @@ def student_detail(request, id):
     student = get_object_or_404(Student, id=id)
     return render(request, 'student_detail.html', {'student': student})
 
-from .forms import StudentForm
+
 
 def student_create(request):
     if request.method == 'POST':
@@ -46,3 +49,14 @@ def student_delete(request, id):
 def teacher_detail(request, id):
     teacher = get_object_or_404(Teacher, id=id)
     return render(request, 'teacher_detail.html', {'teacher': teacher})
+
+def teacher_create(request):
+    if request.method == 'POST':
+        form = TeacherForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')  # Redirect after saving
+    else:
+        form = TeacherForm()
+    
+    return render(request, 'teacher_form.html', {'form': form})
