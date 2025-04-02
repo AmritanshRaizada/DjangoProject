@@ -15,17 +15,26 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-r#rfms3(fls6bf*zjojm4k)^5en12f75dpte@k+wkynn3##csg"
+AUTH_USER_MODEL = 'myapp.CustomUser'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+LOGIN_URL = 'login'
 
 
 # Application definition
@@ -117,12 +126,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 # settings.py
-STATIC_URL = '/static/'
+import os
 
-# If you want to collect static files for production use, you can set the STATICFILES_DIRS like this:
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # Ensure static files are included
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # This is required for collectstatic
+
 
 
 # Default primary key field type

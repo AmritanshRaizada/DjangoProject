@@ -18,13 +18,20 @@ Including another URLconf
 from django.urls import path
 from myapp.views import (
     home, student_list, student_detail, student_create, 
-    student_update, student_delete, teacher_detail, teacher_create
+    student_update, student_delete, teacher_detail, teacher_create,user_login,user_logout,
+    register,login_view,logout_view
 )
 from django.contrib import admin
 from django.urls import path
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),  
+    path('logout/', logout_view, name='logout'),
+    path('register/', register, name='register'),
+    path('logout/', user_logout, name='logout'),
+    path('login/', login_view, name='login'),
+    path('login/', user_login, name='login'),
     path('', home, name='home'),
     path('students/', student_list, name='student_list'),
     path('student/<int:id>/', student_detail, name='student_detail'),

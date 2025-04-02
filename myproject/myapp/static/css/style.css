@@ -6,6 +6,31 @@ body {
     background-color: #f0f8ff;
     color: #333;
 }
+/* Logout Button Styling */
+.logout-button {
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    padding: 15px 30px;
+    background-color: #DC3545; /* Red color */
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+/* Hover effect for Logout Button */
+.add-button:hover {
+    background-color: #C82333; /* Darker red */
+    box-shadow: 0 6px 14px rgba(220, 53, 69, 0.5);
+    transform: translateY(-3px);
+}
+
+
 
 /* Header */
 h1 {
@@ -154,3 +179,4 @@ h2 {
         width: 90%;
     }
 }
+/* Logout Button Styling */
